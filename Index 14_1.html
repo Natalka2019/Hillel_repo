@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+
+
+	<script>
+"use strict"
+
+class employee {
+
+	constructor (firstName, lastName){
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	getUser () {
+		return this.getFirstName() + " " + this.getLastName()
+	}
+
+	getFirstName() {
+		let firstName = !this.firstName ? this.setFirstName() : this.firstName;
+		return firstName;
+	}
+
+	setFirstName() {
+		return prompt("What is your first name?", "") 
+	}
+
+	getLastName() {
+		let lastName = !this.lastName? this.setLastName() : this.lastName;
+		return lastName;
+	}
+
+	setLastName() {
+		return prompt("What is your last name?", "")
+	}
+
+	renderUser() {
+
+			let ul = document.createElement('ul');
+			document.body.appendChild(ul);
+			let result = this.getUser();
+			ul.innerText = result;
+
+	}
+
+}
+
+Object.defineProperty(employee, 'getUser', {
+	writable: true
+});
+
+let user = new employee();
+
+user.renderUser(); 
+
+	</script>
+
+</body>
+</html>
+
