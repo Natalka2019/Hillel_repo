@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+
+
+	<script>
+"use strict"
+
+let table = document.createElement('table');
+table.style.border = "1px solid blue";
+document.body.appendChild(table);
+
+let thead = document.createElement('thead');
+let trHead = document.createElement('tr');
+
+table.appendChild(thead);
+thead.appendChild(trHead);
+
+let tbody = document.createElement('tbody');
+let tr = document.createElement('tr');
+
+table.appendChild(tbody);
+tbody.appendChild(tr);
+
+
+Object.defineProperty(Array.prototype, 'render', {
+	get() {
+
+		for (let i=0; i<this.length; i++) {
+
+			let th = document.createElement('th');
+			trHead.appendChild(th);
+			th.innerHTML = i;
+			th.style.border = "1px solid blue";
+
+			let td = document.createElement('td');
+			tr.appendChild(td);
+			td.innerHTML = this[i];
+			td.style.border = "1px solid blue";
+
+		}
+
+	}
+})
+
+let myList = [1,2,3,4,5,6,7,8,9,10];
+
+console.log(myList);
+
+myList.render;
+
+	</script>
+
+</body>
+</html>
+
