@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+
+
+	<script>
+"use strict"
+
+let data = {
+
+	set model (value) {
+
+		if (!this.str) {
+			this.str = value;
+		} else {
+			this.str = this.str.split(value);
+			this.symbol = value;
+		}
+
+	},
+
+	get model () {
+			
+			let obj = {};
+			obj.symbol = this.symbol;
+			obj.count = this.str.length-1;
+			return obj;
+
+	}
+
+};
+
+data.model = 'Hello* how* are you?';
+console.log(data.str);
+
+data.model = "*";
+console.log(data.str);
+
+console.log(data.model);
+
+	</script>
+
+</body>
+</html>
+
+
