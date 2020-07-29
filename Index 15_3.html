@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+
+
+	<script>
+"use strict"
+
+let obj = {x:10, y: 20, p: 15};
+
+Object.defineProperty(obj, "model", {
+
+	set (value) {
+
+		this.x = value.x ? eval((this.x || 0) + ' '+ value.x.operation + ' ' + value.x.value) : this.x;
+		this.y = value.y? eval((this.y || 0) + ' '+ value.y.operation + ' ' + value.y.value) :this.y;
+		this.p = value.p ? eval((this.p || 0) + ' '+ value.p.operation + ' ' + value.p.value) : this.p;
+		this.z = value.z ? eval((this.z || 0)+ ' '+ value.z.operation + ' ' + value.z.value) : this.z;
+
+	}
+})
+
+console.log(obj);
+obj.model = { x: { value: 33, operation: '*' }, z: { value: 75, operation: '+' }, p: { value: 4, operation: '%' } };
+
+console.log(obj);
+
+	</script>
+
+</body>
+</html>
+
+
