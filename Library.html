@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+	<div class = "block"></div>
+
+
+	<script>
+"use strict"
+
+//Factorial
+
+/*function Fuctorial (n) {
+
+	if (n == 0 || n == 1) {
+		return 1;
+	}
+
+	for (let i = n - 1; i >= 1; i--) {
+
+		n = n * i;
+	}
+
+	return n;
+}
+
+console.log( Fuctorial (5) );*/
+
+//Fibonacci
+
+/*function Fibonacci (n) {
+
+	let result = [0, 1];
+
+	for (let i = 2; i <= n; i++) {
+
+		let a = result[i - 1];
+		let b = result[i - 2];
+
+		result.push(a + b);
+
+	}
+
+	return result;
+}
+
+console.log( Fibonacci (8) );*/
+
+
+//Linear search
+
+/*function LinearSearch (arr, item) {
+
+	for (let element of arr) {
+
+		if (element == item) {
+
+			return "Found at index: " + arr.indexOf(element);
+
+		} 
+	}
+
+	return "Not found"
+}
+console.log( [1,2,3,4,5,6,7,8] );
+console.log( 5 );
+console.log( LinearSearch([1,2,3,4,5,6,7,8], 5) );*/
+
+
+//Binary search
+
+/*function BinarySearch (arr, item) {
+
+	let startIndex = 0;
+	let endIndex = arr.length - 1;
+
+	while (startIndex <= endIndex) {
+
+		let middleIndex = Math.floor((startIndex + endIndex) / 2);
+
+		if (arr[middleIndex] == item) {
+			return "found at: " + middleIndex;
+		}
+
+		if (arr[middleIndex] < item) {
+			startIndex = middleIndex + 1;
+
+		} else {
+			endIndex = middleIndex - 1
+
+		}
+
+	}
+
+	return "Not found";
+}
+
+
+console.log( [1,2,3,4,5,6,7,8] );
+console.log( 5 );
+console.log( BinarySearch([1,2,3,4,5,6,7,8], 5) );*/
+
+
+	</script>
+</body>
+</html>
+
+
+<!-- let login = prompt("Enter login ","");
+
+if (login==="Admin") {
+	let password = prompt("Enter password", "");
+	if (password==="The master") {
+		alert("Welcome!")
+	} else if (!password) {
+			alert("canceled")
+		} else {
+			alert("Wrong password")
+		}
+} else if (!login) {
+	alert("canceled")
+} else {
+	alert("I don't know you")
+} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
