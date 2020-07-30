@@ -103,12 +103,82 @@ console.log( 5 );
 console.log( BinarySearch([1,2,3,4,5,6,7,8], 5) );*/
 
 
-	</script>
-</body>
-</html>
 
+//Bubble sort
 
-<!-- let login = prompt("Enter login ","");
+/*function bubbleSort (arr) {
+
+	for (let i = 0; i < arr.length; i++) {
+
+		for (let j = 0; j < arr.length; j++) {
+
+			if (arr[j] > arr[j + 1]) {
+
+				let lesser = arr[j + 1];
+				arr[j + 1] = arr[j];
+				arr[j] = lesser;
+			}
+		}
+	}
+
+	return arr;
+}
+
+console.log( bubbleSort([83, 1, 55, 68, 3, 12]) )*/
+
+//Selection sort
+
+/*
+function selectionSort(arr) {
+
+	for (let i = 0; i < arr.length; i++) {
+
+		let minIndex = i;
+
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[j] < arr[minIndex]) {
+				minIndex = j;
+			}
+		}
+
+		if (i != minIndex) {
+			let lesser = arr[minIndex];
+			arr[minIndex] = arr[i];
+			arr[i] = lesser;
+		}
+	}
+
+	return arr;
+}
+
+console.log( selectionSort([83, 1, 55, 68, 3, 12]) )*/
+
+//Insertion sort
+
+/*function insertionSort(arr) {
+
+	for (let i = 0; i < arr.length; i++) {
+		
+		let key = arr[i];
+		let j = i - 1;
+
+		while (j >= 0 && arr[j] > key) {
+
+			arr[j+1] = arr[j];
+			j--;
+		}
+
+		arr[j+1] = key;
+	}
+
+	return arr;
+} 
+
+console.log( insertionSort([83, 1, 55, 68, 3, 12]) )*/
+
+//Login
+
+/*let login = prompt("Enter login ","");
 
 if (login==="Admin") {
 	let password = prompt("Enter password", "");
@@ -123,7 +193,14 @@ if (login==="Admin") {
 	alert("canceled")
 } else {
 	alert("I don't know you")
-} -->
+}*/
+
+	</script>
+</body>
+</html>
+
+
+
 
 
 
