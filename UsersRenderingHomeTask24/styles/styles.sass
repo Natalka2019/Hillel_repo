@@ -1,0 +1,82 @@
+$block--bg: rgb(214,221,255)
+$card--bg: #F8F8F8
+$ratings: 'excellent','verygood', 'good', 'satisfactory'
+
+$color--excellent: rgb(76,175,80)
+$color--verygood: rgb(33,150,243)
+$color--good: rgb(255,152,0)
+$color--satisfactory: rgb(244,67,54)
+
+=rating($color)
+  background: rgba($color,.2)
+  color: $color
+
+body
+  font-family: 'Lato', sans-serif
+  font-size: 14px
+
+.card
+  background: $card--bg
+  border-radius: 4px
+  padding: 15px 20px
+  margin: 0 auto 20px auto
+  width: 750px
+  &__info
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    &--data
+      display: flex
+      align-items: center
+      img
+        margin-right: 15px
+    &--role
+      display: inline-flex
+      align-items: center
+      margin: 0
+      font-size: 12px
+      text-transform: lowercase
+      background: rgba(215,221,255,50%)
+      border-radius: 4px
+      padding: 6px 10px 6px 5px
+      img
+        margin-right: 5px
+        max-width: 18px
+        max-height: 18px
+  &__courses
+    display: flex
+    align-items: center
+    margin-top: 15px
+    &--course
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 4px
+      background: rgba(215,221,255,50%)
+      margin: 0 10px 0 0
+      padding: 6px 10px
+      font-size: 12px
+      span
+        padding: 3px 5px
+        border-radius: 4px
+        margin-left: 5px
+    @each $rating in $ratings
+      .#{$rating}
+        span
+          @if $rating == 'excellent'
+            +rating($color--excellent)
+          @else if $rating == 'verygood'
+            +rating($color--verygood)
+          @else if $rating == 'good'
+            +rating($color--good)
+          @else if $rating == 'satisfactory'
+            +rating($color--satisfactory)
+      &:last-of-type
+        margin-right: 0
+
+.user__info
+  p
+    font-size: 14px
+    margin: 0 0 5px 0
+    &:last-of-type
+      margin-bottom: 0

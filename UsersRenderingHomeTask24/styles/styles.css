@@ -1,0 +1,77 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 14px; }
+
+.card {
+  background: #F8F8F8;
+  border-radius: 4px;
+  padding: 15px 20px;
+  margin: 0 auto 20px auto;
+  width: 750px; }
+  .card__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; }
+    .card__info--data {
+      display: flex;
+      align-items: center; }
+      .card__info--data img {
+        margin-right: 15px; }
+    .card__info--role {
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      font-size: 12px;
+      text-transform: lowercase;
+      background: rgba(215, 221, 255, 0.5);
+      border-radius: 4px;
+      padding: 6px 10px 6px 5px; }
+      .card__info--role img {
+        margin-right: 5px;
+        max-width: 18px;
+        max-height: 18px; }
+  .card__courses {
+    display: flex;
+    align-items: center;
+    margin-top: 15px; }
+    .card__courses--course {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background: rgba(215, 221, 255, 0.5);
+      margin: 0 10px 0 0;
+      padding: 6px 10px;
+      font-size: 12px; }
+      .card__courses--course span {
+        padding: 3px 5px;
+        border-radius: 4px;
+        margin-left: 5px; }
+    .card__courses .excellent span {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4caf50; }
+    .card__courses:last-of-type {
+      margin-right: 0; }
+    .card__courses .verygood span {
+      background: rgba(33, 150, 243, 0.2);
+      color: #2196f3; }
+    .card__courses:last-of-type {
+      margin-right: 0; }
+    .card__courses .good span {
+      background: rgba(255, 152, 0, 0.2);
+      color: #ff9800; }
+    .card__courses:last-of-type {
+      margin-right: 0; }
+    .card__courses .satisfactory span {
+      background: rgba(244, 67, 54, 0.2);
+      color: #f44336; }
+    .card__courses:last-of-type {
+      margin-right: 0; }
+
+.user__info p {
+  font-size: 14px;
+  margin: 0 0 5px 0; }
+  .user__info p:last-of-type {
+    margin-bottom: 0; }
+
+/*# sourceMappingURL=styles.css.map */

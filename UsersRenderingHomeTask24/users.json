@@ -1,0 +1,65 @@
+{
+	"rating": {
+		"Satisfactory": 15,
+		"Good": 30,
+		"Very Good": 80,
+		"Excellent": 100
+	},
+	"roles": {
+		"admin": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/roles/admin.svg",
+		"moderator": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/roles/moderator.svg",
+		"student": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/roles/student.svg"
+	},
+	"users": [
+		{
+			"name": "Maks",
+			"age": 20,
+			"position": "student",
+			"icon": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/users/maks.svg",
+			"courses": [
+				{
+					"name": "Front-end Basic",
+					"rating": 55
+				},
+				{
+					"name": "UI/UX",
+					"rating": 100
+				},
+				{
+					"name": "Java",
+					"rating": 10
+				}
+			]
+		},
+		{
+			"name": "David",
+			"age": 22,
+			"position": "admin",
+			"icon": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/users/david.svg"
+		},
+		{
+			"name": "Eva",
+			"age": 18,
+			"position": "student",
+			"icon": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/users/eva.svg",
+			"courses": [
+				{
+					"name": "Front-end Pro",
+					"rating": 20
+				}
+			]
+		},
+		{
+			"name": "Jack",
+			"age": 30,
+			"position": "moderator",
+			"icon": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/users/jack.svg"
+		},
+		{
+			"name": "Lora",
+			"age": 25,
+			"position": "student",
+			"icon": "https://raw.githubusercontent.com/brightestsirius/users/5b470e0fca968b4891881f812ce6e9f04f580859/images/users/lora.svg"
+		}
+	]
+}
