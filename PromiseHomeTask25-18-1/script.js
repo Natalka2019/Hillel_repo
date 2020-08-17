@@ -50,3 +50,60 @@ listConcat.then(
 	}
 )
 
+//ALTERNATIVE VARIANT
+
+/*function getList (JSONfile) {
+
+	return new Promise((resolve, reject) => {
+
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', JSONfile);
+		xhr.send();
+
+		xhr.onload = function () {
+
+			if (xhr.status >= 200 && xhr.status < 400) {
+				
+				resolve(JSON.parse(xhr.responseText))
+
+			} 
+
+		}
+
+	} )
+
+}
+
+
+let listConcat = new Promise(
+	(resolve, reject) => {
+	
+		resolve(getList('data.json'));
+
+	}
+
+)
+
+listConcat.then(
+
+	(data) => {
+
+		let listOne = data.slice();
+
+		getList('data2.json').then(
+
+				(data) => {
+
+					let listConcat = listOne.concat(data);
+
+					console.log(listOne);
+					console.log(data);
+					console.log(listConcat);
+				}
+
+		);
+
+	}
+)
+
+*/
