@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+	<title>Promise</title>
+	<style>
+		input {
+			background-color: lightgreen;
+			border: 2px solid green;
+		}
+	</style>
+
+</head>
+<body>
+
+	<script>
+"use strict"
+
+let inputField = document.createElement('input');
+document.body.appendChild(inputField);
+
+
+let  getList = new Promise (
+		(resolve, reject) => {
+
+			inputField.onmousedown = event =>
+
+				event? resolve() : reject();
+
+		}
+)
+
+getList.then(
+	data => {
+
+			let list = [];
+
+			inputField.addEventListener('keypress', function (event) {
+
+				if (event.key == 'Enter') {
+				
+					list.push(inputField.value);
+
+				}
+
+				inputField.value = '';
+
+			} )
+
+
+			setTimeout( () => {
+						
+				console.log(list);
+
+			}, 10000 )
+
+	})
+
+
+	</script>
+</body>
+</html>
+
+
+<!-- 			inputField.addEventListener('mousedown', function (event) {
+
+				console.log(event);
+
+				if (event) {
+				
+					resolve(console.log('resolve'));
+
+				}
+				
+			} ) -->
