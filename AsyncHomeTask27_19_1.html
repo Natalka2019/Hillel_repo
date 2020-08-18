@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+	<title>Promise</title>
+
+</head>
+<body>
+
+	<script>
+"use strict"
+
+
+let getPromise = async function (timer) {
+
+	let promise = new Promise((resolve, reject) => {
+
+			setTimeout(
+
+				() => resolve( Math.floor(Math.random() * 100) ),
+			
+			timer);
+
+	});
+
+	let result = await promise;	
+
+	return result;
+
+}
+
+
+let runAfter = async function ([a, b, c]) {
+
+	let result = await Promise.all([a, b, c])
+
+	console.log(result);
+
+}
+
+runAfter([getPromise(2000), getPromise(3000), getPromise(5000)]);
+
+
+/*
+Promise.all([getPromise(2000), getPromise(3000),getPromise(5000)])
+	
+	.then( data => console.log(data) )*/
+
+	</script>
+</body>
+</html>
+
