@@ -1,5 +1,33 @@
+async function getList (JSONfile) {
 
- function getList (JSONfile) {
+	let response = await fetch(JSONfile);
+
+
+	if (response.ok) {
+
+		let result = await response.json();
+
+		return result;
+
+	}
+
+}
+
+Promise.all([getList('data.json'), getList('data2.json')]).then((values) => {
+
+	let list = values.reduce((sum, current) => sum + ',' + current).split(',');
+	
+	console.table(list)
+
+} );
+
+
+
+
+
+//ALTERNATIVE VARIANT 1
+
+/* function getList (JSONfile) {
 
 	return new Promise((resolve, reject) => {
 
@@ -23,13 +51,14 @@
 
 Promise.all([getList('data.json'), getList('data2.json')]).then((values) => {
 
-let list = values.reduce((sum, current) => sum + ',' + current).split(',');
-console.log(list)
+	let list = values.reduce((sum, current) => sum + ',' + current).split(',');
 
-} );
+	console.log(list)
+
+} );*/
 
 
-//ALTERNATIVE VARIANT 1
+//ALTERNATIVE VARIANT 2
 /*
 
 let listFinal;
@@ -83,7 +112,7 @@ listConcat.then(
 	}
 )*/
 
-//ALTERNATIVE VARIANT 2
+//ALTERNATIVE VARIANT 3
 
 /*function getList (JSONfile) {
 
