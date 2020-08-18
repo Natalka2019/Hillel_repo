@@ -1,4 +1,37 @@
 
+ function getList (JSONfile) {
+
+	return new Promise((resolve, reject) => {
+
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', JSONfile);
+		xhr.send();
+
+		xhr.onload = function () {
+
+			if (xhr.status >= 200 && xhr.status < 400) {
+				
+				resolve(JSON.parse(xhr.responseText))
+
+			} 
+
+		}
+
+	} )
+
+}
+
+Promise.all([getList('data.json'), getList('data2.json')]).then((values) => {
+
+let list = values.reduce((sum, current) => sum + ',' + current).split(',');
+console.log(list)
+
+} );
+
+
+//ALTERNATIVE VARIANT 1
+/*
+
 let listFinal;
 
 let listConcat = new Promise(
@@ -48,9 +81,9 @@ listConcat.then(
 			}
 
 	}
-)
+)*/
 
-//ALTERNATIVE VARIANT
+//ALTERNATIVE VARIANT 2
 
 /*function getList (JSONfile) {
 
