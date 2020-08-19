@@ -8,8 +8,85 @@
 	<script>
 "use strict"
 
-
 let getPromise = async function (timer) {
+
+	let promise = new Promise((resolve, reject) => {
+
+			setTimeout(() => resolve(), timer);
+
+	});
+
+	let result = await promise;	
+
+	return result;
+
+}
+
+function afterFirstPromise(){
+
+	return Math.floor(Math.random() * 100)
+
+};
+
+function afterSecondPromise(){
+
+	return Math.floor(Math.random() * 100)
+
+};
+
+function afterThirdPromise(){
+
+	return Math.floor(Math.random() * 100)
+
+};
+
+
+let runAfter = async function ([afterFirstPromise,afterSecondPromise,afterThirdPromise]) {
+
+	return Promise.all([
+
+		getPromise(2000)
+			.then( () => {
+
+				console.log(`After first promise: ${afterFirstPromise}`);
+
+				return afterFirstPromise;
+
+			} ),
+
+		getPromise(3000)
+			.then( () => {
+
+				console.log(`After second promise: ${afterSecondPromise}`);
+
+				return afterSecondPromise;
+
+			} ),
+
+		getPromise(5000)
+			.then( () => {
+
+				console.log(`After third promise: ${afterThirdPromise}`);
+
+				return afterThirdPromise;
+
+			} ),
+
+		])
+			.then(
+
+				(data) => console.log(data)
+			) 
+
+}
+
+
+runAfter([afterFirstPromise(),afterSecondPromise(),afterThirdPromise()]);
+
+
+//Alternative variant
+
+/*let getPromise = async function (timer) {
 
 	let promise = new Promise((resolve, reject) => {
 
@@ -36,7 +113,7 @@ let runAfter = async function ([a, b, c]) {
 
 }
 
-runAfter([getPromise(2000), getPromise(3000), getPromise(5000)]);
+runAfter([getPromise(2000), getPromise(3000), getPromise(5000)]);*/
 
 
 /*
