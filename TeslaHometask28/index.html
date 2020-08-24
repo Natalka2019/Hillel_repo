@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+	<title>Tesla</title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+	<style>
+
+		* {
+    		box-sizing: border-box;
+		}
+		.dot {
+			cursor: pointer;
+		    height: 35px;
+		    width: 25px;
+		    margin: 1px 2px;
+		    background-color: #bbb;
+		    border-radius: 2px;
+		    display: inline-block;
+		    transition: box-shadow 0.6s ease;
+			}
+
+		.active, .dot:hover {
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
+	    	margin-bottom: 1px;
+		}
+
+		.show {
+			display: block;
+		}
+
+		.noshow {
+			display: none;
+		}
+
+		span.solid-black {
+			background-color: #2E2E2E;
+		}
+		span.midnight-silver {
+			background-color: #43424F;
+		}
+		span.obsidian-black {
+			background-color: #000000;
+		}
+		span.deep-blue {
+			background-color: #212252;
+		}
+		span.silver {
+		    background-color: #A8A1A2;
+		}
+		span.white {
+		    background-color: #ECEBEC;
+		}
+		span.red {
+			background-color: #c31130;
+		}
+		span.orange {
+			background-color: #F68B28;
+		}
+		span.yellow {
+			background-color: #FBB842;
+		}
+		span.glacier-blue {
+			background-color: #BBCBD0;
+		}
+		span.electric-blue {
+			background-color: #0F93DA;
+		}
+		span.green-lotus {
+			background-color: #3d7866;
+		    border-bottom: 3px solid #f8a00d;
+		}
+
+		.text {
+		    color: #cccccc;
+		    font-size: 15px;
+		    position: absolute;
+		    bottom: 0px;
+		    width: 100%;
+		    text-align: center;
+		}
+
+		.colors {
+			background: -webkit-linear-gradient(74deg, #ff0000, #AF233E);
+			background-size: 200% 200%;
+			-webkit-background-clip: text;
+		    -webkit-text-fill-color: transparent;
+			animation-delay:0s;
+			animation-direction:normal;
+			animation-duration:1s;
+			animation-fill-mode:none;
+			animation-iteration-count:infinite;
+			animation-name:Hue;
+			animation-play-state:running;
+			animation-timing-function:linear;
+
+		}
+		
+	@keyframes Hue {
+		from {
+		    -webkit-filter: hue-rotate(0deg);
+		  }
+		to {
+		    -webkit-filter: hue-rotate(-360deg);
+		  }
+}
+
+	</style>
+
+</head>
+<body>
+
+	<script src='node_modules/jquery/dist/jquery.min.js'></script>
+	<script src = "script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
