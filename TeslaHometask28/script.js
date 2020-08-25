@@ -94,51 +94,53 @@ $(".color-picker")
 
 async function colorPicker (URL) {
 
-	let promise = await fetch(URL);
+	fetch(URL)
+		.then(response => response.json())
+		.then(json => {
 
-	let teslaData = await promise.json();
-
-	addElements(teslaData);
-
-	addText();
-
-	$("span.solid-black").addClass("active");
-
-	$("div.solid-black")
-		.removeClass("noshow")
-		.addClass("show");
+			addElements(json);
+			
+			addText();
 
 
-	$("span").click(function () {
+			$("span.solid-black").addClass("active");
 
-		$("span.active").removeClass("active");
-		
-		$(this).addClass("active");
-
-		let x =  $(this)[0].className.split(" ")[1];
-
-		let list = $(".slideshow-container div");
+			$("div.solid-black")
+				.removeClass("noshow")
+				.addClass("show");
 
 
-		for (let element of list) {
+			$("span").click(function () {
 
-			if (element.className.split(" ")[0] == x) {
+				$("span.active").removeClass("active");
+				
+				$(this).addClass("active");
 
-				$("div.show")
-					.removeClass("show")
-					.addClass("noshow");
+				let x =  $(this)[0].className.split(" ")[1];
 
-				element.classList.remove("noshow");
-				element.classList.add("show");
+				let list = $(".slideshow-container div");
 
-			}
 
-		}
+				for (let element of list) {
 
-	});
+					if (element.className.split(" ")[0] == x) {
+
+						$("div.show")
+							.removeClass("show")
+							.addClass("noshow");
+
+						element.classList.remove("noshow");
+						element.classList.add("show");
+
+					}
+
+				}
+
+			})
+
+		})
 
 }
-
 
 function addElements (obj) {
 
