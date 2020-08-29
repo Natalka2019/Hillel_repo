@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+
+		.container {
+			margin: auto;
+			display: flex;
+			align-items: center;
+
+		}
+		.header {
+			display: inline-block;
+			padding: 0 50px 0;
+			background-color: lightgreen;
+			border-radius: 10px;
+			position: absolute;
+			top: 50px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: darkgreen;
+			font-size: 20px;
+
+		}
+		.list {
+			position: relative;
+			top: 120px;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			height: 800px;
+
+		}
+		.leftList {
+			float: left;
+			margin-right: 10px;
+			height: 100%;
+						
+						
+
+		}
+		.rightList {
+			float: right;
+			height: 100%;
+									
+		}
+		.columnHeader {
+			background-color: lightblue;
+			margin: 30px 0 50px 40px;
+			padding: 10px 0;
+			width: 300px;
+			text-align: center;
+			border-radius: 10px;
+			border: none;
+			color: blue;
+			font-size: 20px;
+			position: relative;
+			top: 0;
+		}
+		.rightList .columnHeader {
+			background-color: #fada5e;
+		}
+		ul {
+			margin-top: 50px;
+			position: relative;
+		}
+		li {
+			background-color: lightblue;
+			display: block;
+			padding: 10px 0;
+			margin: 10px 0;
+			width: 300px;
+			text-align: center;
+			border-radius: 10px;
+			color: blue;
+			font-size: 20px;
+
+		}
+		.rightList li {
+			background-color: #fada5e;
+		}
+		.list p {
+			display: block;
+			margin: 30px 0 0 40px;
+			padding: 10px 0;
+			width: 300px;
+			text-align: center;
+			font-size: 20px;
+			position: relative;
+			color: blue;
+
+		}
+		button {
+			background-color: #fada5e;
+			display: block;
+			margin: 30px 0 0 40px;
+			padding: 10px 0;
+			width: 300px;
+			text-align: center;
+			border-radius: 10px;
+			border: none;
+			color: blue;
+			font-size: 20px;
+			position: relative;
+			cursor: pointer;
+			outline: none;
+
+		}
+		.rightList button {
+			background-color: lightblue;
+		}
+
+		button:hover {
+		    background-color: lightgreen; 
+		    color: darkgreen;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div id="app">
+	<div class = "container">
+		<div class="header">
+			<p><b>Task manager</b></p>
+		</div>
+		<div class = "list">
+			<div class = "leftList">
+				<div class="columnHeader"><b>Backlog</b></div>
+				<p v-if="backlog.length == 0">No tasks!</p>
+				<ul>
+					<li v-for="task in backlog">
+						<b>{{task}}</b>
+					</li>
+				</ul>
+				<button class="backlogButton" @click="transferToWeeklyTasks">Transfer to weekly tasks =></button>
+			</div>
+			<div class = "rightList">
+				<div class="columnHeader"><b>Weekly Tasks</b></div>
+				<p v-if="weekTasks.length == 0">No tasks!</p>
+				<ul>
+					<li v-for="task in weekTasks">
+						<b>{{task}}</b>
+					</li>
+				</ul>
+				<button class="weekTasksButton" @click="transferToBacklog"><= Return to backlog</button>
+			</div>
+		</div>
+	</div>
+</div>
+	<script>
+"use strict"
+
+let app = new Vue ({
+	el: "#app",
+	data: {
+		backlog: [
+			"task 1",
+			"task 2",
+			"task 3"
+		],
+		weekTasks: [
+			"task A",
+			"task B",
+			"task C",
+			"task D",
+			"task E",
+			"task F"
+		]
+	},
+	methods: {
+		transferToWeeklyTasks() {
+			if(this.backlog.length !=0) {
+				this.weekTasks.unshift(this.backlog.pop());
+			}
+		},
+		transferToBacklog() {
+			if (this.weekTasks.length !=0) {this.backlog.unshift(this.weekTasks.pop());
+			}
+		}
+	}
+})
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
