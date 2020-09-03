@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+
+		.container {
+			margin: 50px auto;
+			top: 50px;
+			border: 1px solid black;
+			height: 300px;
+			width: 500px;
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			grid-template-rows: repeat(100, 1fr);
+			grid-column-gap: 5px;
+			list-style-type: none;
+			padding: 0;
+
+		}
+		.column {
+			margin: 0;
+			padding: 0;
+			border-radius: 5px 5px 0 0;
+			grid-row-end: 300;
+		}
+		input {
+			appearance: none;
+			cursor: pointer;
+			border-radius: 0 5px 5px 0 ;
+			width: 300px;
+			outline: none;
+		}
+	</style>
+
+</head>
+<body>
+
+<div id="app">
+
+		<chart :bars="bars"></chart>
+
+		<equalizer
+			:bars="bars"
+			:min="min"
+			:max="max"
+		></equalizer>
+
+</div>
+	<script>
+
+"use strict"
+
+Vue.component('chart', {
+
+	props: ['bars'],
+	template: `
+		<ul class = "container">
+
+			<li class= "column"
+				v-for="(bar, index) in bars"
+				:style="{background: bars[index].background, gridRowStart: 100-bars[index].sliderValue}">
+			</li>
+			
+		</ul>
+	`
+})
+
+Vue.component('equalizer', {
+
+	props: ['bars', 'min', 'max'],
+	template: `
+		<ul class = "container">
+			
+			<input type="range" 
+				min="min"
+				max="max"
+				class="slider"
+				v-for="(bar, index) in bars"
+				v-model="bars[index].sliderValue"
+				:style="{background: bars[index].background, gridRowStart: bars[index].gridRowStart}">
+
+		</ul>
+	`
+})
+
+
+let app = new Vue ({
+	el: '#app',
+	data: {
+		min: 1,
+		max: 300,
+		bars: [
+			{background: 'Crimson', gridRowStart: 10, sliderValue: 90},
+			{background: 'DarkOrange', gridRowStart: 20, sliderValue: 80},
+			{background: 'Gold', gridRowStart: 30, sliderValue: 70},
+			{background: 'Green', gridRowStart: 40, sliderValue: 60},
+			{background: 'LightSkyBlue', gridRowStart: 50, sliderValue: 50},
+			{background: 'Blue', gridRowStart: 60, sliderValue: 40},
+			{background: 'DarkOrchid', gridRowStart: 70, sliderValue: 30},
+		]
+	},
+		
+})
+
+	</script>
+</body>
+</html>
+
