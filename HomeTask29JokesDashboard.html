@@ -113,6 +113,10 @@
 		background: #F8F8F8;
 		color: black;
 	}
+	.categoriesContainer input[type="radio"]:checked+label{
+		background: #F8F8F8;
+		color: black;
+	}
 	.search-container {
 		display: none;
 		height: 30px;
@@ -152,6 +156,12 @@
 		font-size: 16px;
 		line-height: 22px;
 		color: #FFFFFF;
+	}
+	#getJoke:hover {
+		box-shadow: 0px 5px 5px lightgrey; 
+	} 
+	#getJoke:active {
+		transform: translateY(10px);
 	}
 	.jokeContainer {
 		position: relative;
@@ -287,7 +297,7 @@ function getCategories (URL) {
 				let categoriesContainer = document.querySelector('.categoriesContainer');
 
 				categoriesContainer.innerHTML = (categories.map(category =>
-					 `<label class="categoryLabel"><input type="radio" name="categorySelector" class="categorySelector" id="${category}">${category}</input></label>`)).join("");
+					 `<input type="radio" name="categorySelector" class="categorySelector" id="${category}"></input><label class="categoryLabel" for="${category}">${category}</label>`)).join("");
 
 
 			})
