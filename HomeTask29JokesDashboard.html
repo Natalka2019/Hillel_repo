@@ -169,10 +169,26 @@
 		background: #F8F8F8;
 		border-radius: 20px;
 		width: 680px;
-		padding: 67px 40px 20px 100px;
+		padding: 30px 40px 20px 40px;
 		box-sizing: border-box;
 		display: block;
 		overflow: auto;
+	}
+	.jokeContainerLeft {
+		float: left;
+		width: 40px;
+		height: 100%;
+		margin-right: 20px;
+	} 
+	.jokeContainerRight {
+		float: right;
+		margin-left: 0;
+		width: 540px;
+	}
+	img {
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
 	}
 	.jokeLink {
 		font-weight: 500;
@@ -320,7 +336,7 @@ let renderJoke = function (element){
 
 	let hours = Difference.toFixed(0);
 
-	jokeContainer.innerHTML =  `<a class="jokeLink" href="${element.url}">id: ${element.id}</a><div class="jokeField">${element.value}</div><div class="lastUpdate">Last update: ${hours} hours ago</div><div class="jokeCategory">${element.categories}</div>`;
+	jokeContainer.innerHTML =  `<div class="jokeContainerLeft"><img src="${element.icon_url}"></div><div class="jokeContainerRight"><a class="jokeLink" href="${element.url}">id: ${element.id}</a><div class="jokeField">${element.value}</div><div class="lastUpdate">Last update: ${hours} hours ago</div><div class="jokeCategory">${element.categories}</div></div>`;
 
 }
 
