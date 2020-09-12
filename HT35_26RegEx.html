@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+
+	<div class="container">
+		<h1>Hey!</h1>
+		<h2>Let's try to find a joke for you:</h2>
+		<form class="selectorContainer">
+
+			<label for ="random">Random
+				<input type="radio" id="random" name="selector" value="random">
+				<span class="checkmark randomSpan"></span>
+			</label>
+
+			<label for ="categories">From categories
+				<input type="radio" id="categories" name="selector" value="categories" >
+				<div class="categoriesContainer"></div>
+				<span class="checkmark categoriesSpan"></span>
+			</label>
+
+			<label for ="search">Search
+				<input type="radio" id="search" name="selector" value="search">
+				<span class="checkmark searchSpan"></span>
+				<div class="search-container">
+
+						<input class="searchField"type="text" placeholder="Free text search..." name="search" onfocus="this.value=''" autocomplete="off">
+
+				</div>
+			</label>
+
+			<button : ; id="getJoke">Get a Joke</button>
+			
+		</form>
+
+		<div data-id="1234" data-email="calvin@example.com" data-age="21">Calvin</div>
+
+		<a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiyhuCgrOHrAhWCjYsKHW8fAE0QPAgI"></a>
+		<div data-id="Button"></div>
+
+	</div>
+
+	<script>
+"use strict"
+
+
+
+let containerDiv = document.querySelector('.container').outerHTML;
+
+console.log(containerDiv);
+
+let regexp = /<\/?\w*?>/gm;
+
+console.log("*************");
+
+console.log("Tags without attributes");
+
+console.log(containerDiv.match(regexp));
+
+//Short variant
+
+let regexp2 = /<[^<>]+>/gim; 
+
+//Long variant
+
+/*let regexp2 = /<\/?\w*?\s*?[\w+\s="\w+\-'."_\/\/\?\&\;:\(\)]*>/gim; */
+
+
+console.log("*************");
+
+console.log("Tags with attributes");
+
+console.log(containerDiv.match(regexp2));
+
+let regexp3 = /<[^<>]+\bdata-id\b[^<>]+>/gim; 
+
+console.log("*************");
+
+console.log("Tags with attribute: data-id");
+
+console.log(containerDiv.match(regexp3));
+
+
+	</script>
+</body>
+</html>
+
