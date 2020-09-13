@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+
+		.container {
+			display: block;
+
+		}
+		.container input {
+			cursor: pointer;
+			outline: none;
+			display: block;
+			position: absolute;
+		}
+		label {
+			cursor: pointer;
+			position: relative;
+			display: block;
+			margin: 0 0 0 30px;
+		}
+
+		.form input {
+			outline: none;
+			display: block;
+			margin: 20px 0 0 0;
+		}
+		.form {
+			border: 1px solid black;
+			display: block;
+			margin-top: 30px;
+			padding: 10px;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<div id="app">
+
+
+		<div class = "container">
+
+		<h2>Form Generator</h2>
+
+			<input type = "checkbox" id = "text" value = "text" v-model = "checkboxText">
+			<label for="text">Text field</label> 
+			<input type = "checkbox" id = "email" value = "email" v-model = "checkboxEmail">
+			<label for="email">Email field</label>
+			<input type = "checkbox" id = "button" value = "button" v-model = "checkboxButton">
+			<label for="button">Button field</label> 
+			<input type = "checkbox" id = "secondText" value = "secondText" v-model = "checkboxSecondText">
+			<label for="secondText">Text field</label>  
+
+		</div>
+
+		<FormGenerator class="form">
+			<h3>Form fields</h3>
+			<input type="text" v-if="checkboxText" placeholder="Text">
+			<input type="email" v-if="checkboxEmail" placeholder="email">
+			<input type="button" v-if="checkboxButton" value="Press here">
+			<input type="text" v-if="checkboxSecondText" placeholder="Text">
+
+		</FormGenerator>
+
+	</div>
+
+	<script>
+
+"use strict"
+
+
+Vue.component('FormGenerator', {
+
+	props: ['checkboxText, checkboxEmail, checkboxButton'],
+
+})
+
+
+let app = new Vue ({
+	el: '#app',
+	data: {
+		checkboxText: false,
+		checkboxEmail: false,
+		checkboxButton: false,
+		checkboxSecondText: false,
+	},
+		
+})
+
+	</script>
+</body>
+</html>
+
