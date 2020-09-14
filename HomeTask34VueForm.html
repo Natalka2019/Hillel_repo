@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+
+		label {
+			position: relative;
+			display: block;
+			margin: 20px 0 0 30px;
+		}
+
+		input {
+			outline: none;
+			display: block;
+			margin: 5px 0 0 0;
+		}
+		.formDesign {
+			border: 1px solid black;
+			display: block;
+			margin-top: 30px;
+			padding: 10px;
+			width: 300px;
+		}
+		button {
+			width: 100px;
+			cursor: pointer;
+
+		}
+		input[type=button] {
+			background-color: lightgreen;
+			width: 100px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		table {
+			margin-top: 30px;
+			width: 300px;
+		}
+		table, th, td{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<div id="app"
+		:inputData="inputData">
+
+		<button @click="showForm=true">Show form</button>
+
+		<formgenerator v-if="showForm" :form="['input[type=text]', 'input[type=email]', 'input[type=button]', 'input[type=text]']" :model="inputData"></formgenerator>
+
+		<button @click="showTable='true'">Show data</button>
+
+		<table v-if="showTable">
+			<tr>
+				<th>Field Id</th>
+			    <th>Value</th>
+			</tr>
+			<tr v-for="(element, index) in inputData">
+			    <td>{{index}}</td>
+			    <td>{{element}}</td>
+			</tr>
+		</table>
+
+	</div>
+
+	<script>
+
+"use strict"
+
+Vue.component('formgenerator', {
+
+	props: ['form', 'model'],
+	template: `
+
+		<ul class = "formDesign">
+		
+			<label v-for="(input, index) in form"
+				:for="input">{{input.substr(11).replace("]", "")}}
+						<input 
+							:id="index"
+							:type="input.substr(11).replace(']', '')"
+							:placeholder="input.substr(11).replace(']', '')"
+							v-model="model[index]">
+
+							
+			</label>	
+
+		</ul>
+
+	`
+})
+
+
+let app = new Vue ({
+	el: '#app',
+	data: {
+		inputData: [],
+		showTable: false,
+		showForm: false,
+	}
+		
+})
+
+	</script>
+</body>
+</html>
+

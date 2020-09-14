@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+
+		label {
+			position: relative;
+			display: block;
+			margin: 20px 0 0 30px;
+		}
+
+		input {
+			outline: none;
+			display: block;
+			margin: 5px 0 0 0;
+		}
+		input[type=button] {
+			background-color: lightgreen;
+			width: 50px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		.formDesign {
+			border: 1px solid black;
+			display: block;
+			margin-top: 30px;
+			padding: 10px;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<div id="app">
+
+		<h2>Form Generator</h2>
+
+		<formgenerator :form="['input[type=text]', 'input[type=email]', 'input[type=button]', 'input[type=text]']"></formgenerator>
+
+	</div>
+
+	<script>
+
+"use strict"
+
+Vue.component('formgenerator', {
+
+	props: ['form'],
+	template: `
+		<ul class = "formDesign">
+		
+			<label v-for="input in form"
+				:for="input">{{input.substr(11).replace("]", "")}}
+					<input 
+						:type="input.substr(11).replace(']', '')"
+						:placeholder="input.substr(11).replace(']', '')">
+			</label>	
+
+		</ul>
+	`
+})
+
+
+let app = new Vue ({
+	el: '#app',
+	data: {}
+		
+})
+
+	</script>
+</body>
+</html>
+
