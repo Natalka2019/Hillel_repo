@@ -47,9 +47,7 @@ class HTMLGreeter extends Greeter {
 
 	sendGreeting(formatingType) {
 
-		let formattedGuests = this.greet(formatingType);
-
-		formattedGuests.map( guestName => document.body.innerHTML += `<p>Hi ${guestName}!</p>`)
+		this.greet(formatingType).map( guestName => document.body.innerHTML += `<p>Hi ${guestName}!</p>`)
 
 	}
 	
