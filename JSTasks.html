@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+	<title>Document</title>
+
+</head>
+<body>
+	
+
+
+	<script>
+"use strict"
+
+//1. Что будет выведено в консоль?
+
+let a = { c: 'there' };
+let b = a;
+a.c = 'here';
+a.s = 'no';
+console.log(b);
+
+console.log(a);
+
+// {c: "here", s: "no"} 
+
+//a and b store not values, but “references” (address in memory) for the value. So we copied that reference, not the object, thus a and b are pointing to the same object's location in memory. All operations via copied references are performed on the same single object.
+
+
+
+
+// 2. Написать функцию которая будет возвращать формат файла
+// если формат отсутсвует то пустую строку.
+
+// ‘https://www.googletagmanager.com/gtag/reddit/image-basket.png’ -> ‘png’
+
+// ‘/some/thing/toParse.json’ -> ‘json’
+
+// ‘not.so.easy/as/youd/expect.’ -> ‘’
+
+
+//VARIANT 1
+
+/*function getFileFormat (fileName) {
+
+	console.log(fileName);
+
+	let fileNameArray = fileName.split('.');
+
+	let fileFormat = fileNameArray[fileNameArray.length-1];
+
+
+	return fileFormat;
+}*/
+
+//VARIANT 2
+
+const getFileFormat = (fileName) => fileName.split('.').pop();
+
+console.log(getFileFormat ('https://www.googletagmanager.com/gtag/reddit/image-basket.png'));
+
+console.log(getFileFormat ('/some/thing/toParse.json'));
+
+console.log(getFileFormat ('not.so.easy/as/youd/expect.'));
+
+
+// 3. Написать функцию которая будет возвращать массив уникальных значений
+
+// [1, 1, 2, 3, 4, 4] => [1, 2, 3, 4]
+// [4, 4, 2, 3, 1, 1] => [1, 2, 3, 4]
+// [3, 4, 5, 4, 5] => [3, 4, 5]
+
+//VARIANT 1
+
+/*function getUniqueNumbers (array) {
+
+	let uniqueNumbersArray = [];
+
+	for (let i=0; i<array.length; i++) {
+
+		if (!uniqueNumbersArray.includes(array[i])) {
+
+			uniqueNumbersArray.push(array[i]);
+		}
+
+	}
+
+	return uniqueNumbersArray;
+
+}*/ 
+
+//VARIANT 2
+
+//const getUniqueNumbers = (array) => [...new Set(array)];
+
+//VARIANT 3
+
+const getUniqueNumbers = (array) =>
+	array.filter( (element, index, array) =>
+		array.indexOf(element) === index);
+
+
+console.log(getUniqueNumbers([1, 1, 2, 3, 4, 4]));
+console.log(getUniqueNumbers([4, 4, 2, 3, 1, 1]));
+console.log(getUniqueNumbers([3, 4, 5, 4, 5]));
+
+// 4. Дан массив объектов, необходимо написать функцию которая объединит все объекты в один
+
+const array = [{ a: 1 }, { b: 2 }, { c: 3 }];
+
+
+const arrayOfObjectsConcat = (array)  =>
+	array.reduce( (accumulator, currentElement) => Object.assign(accumulator, currentElement));
+
+console.log(arrayOfObjectsConcat(array));
+
+console.log(Object.assign(...array));
+
+
+// 5. Удалить из массива все не уникальные элементы
+
+// [1, 2, 3, 1, 3] => [1, 3, 1, 3]
+
+//VARIANT 1
+
+/*const deleteNonUniqueNumbers = (array) => {
+
+	let arrayOfDuplicates = [];
+
+	let nonUniqueNumbers = array.filter( (element, index, array) => array.indexOf(element) !== index );
+
+
+	for (let i=0; i<array.length; i++) {
+
+		for (let element of nonUniqueNumbers) {
+
+			if (array[i] === element) {
+
+				arrayOfDuplicates.push(array[i]);
+			}
+		}
+
+		
+	}
+
+
+	return arrayOfDuplicates;
+};*/
+
+
+//VARIANT 2
+
+const deleteNonUniqueNumbers = (array) =>
+	array.filter( (element) =>
+		array.filter( (element, index, array) =>
+			array.indexOf(element) !== index ).includes(element) );
+
+console.log(deleteNonUniqueNumbers([1, 2, 3, 1, 3]));
+
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
